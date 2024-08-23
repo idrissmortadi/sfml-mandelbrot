@@ -10,7 +10,10 @@ This project is a Mandelbrot fractal visualizer created using C++ and the SFML (
 
 ## Getting Started
 
-To build and run the visualizer, ensure you have SFML installed. Compile the project with your preferred C++ compiler and execute the resulting binary to start exploring the Mandelbrot set.
+To build and run the visualizer, ensure you have SFML and CMake are installed. Compile the project and execute the resulting binary to start exploring the Mandelbrot set.
+```bash
+cmake --build build --config Release && ./build/bin/main
+```
 
 ## Usage
 

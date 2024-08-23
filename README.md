@@ -2,6 +2,8 @@
 
 This project is a Mandelbrot fractal visualizer created using C++ and the SFML (Simple and Fast Multimedia Library) framework. The application renders the Mandelbrot set in real-time, allowing users to explore the fractal's intricate patterns through panning and zooming.
 
+![[demo.mp4]]
+
 ## Features
 
 - **Real-Time Rendering**: View the Mandelbrot set with real-time updates.

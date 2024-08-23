@@ -19,7 +19,7 @@ cmake --build build --config Release && ./build/bin/main
 
 ## Usage
 
-- **Arrow Keys / WASD**: Pan the view.
+- **Arrow Keys / ZQSD**: Pan the view.
 - **A / E**: Zoom in / out.
 - **Space Bar**: Recalculate the fractal image.
 

@@ -3,7 +3,6 @@
 #include <SFML/Window/Keyboard.hpp>
 #include <complex>
 
-// Constants
 #define WIDTH 800
 #define HEIGHT 600
 #define COLOR_CHANNELS 4 // RGBA
@@ -12,7 +11,6 @@
 #define MOVE_SPEED 10
 #define ZOOM_LEVEL 0.05
 
-// Function to calculate Mandelbrot and fill the pixel array
 void calculateMandelbrot(sf::Uint8 *pixels, double centerX, double centerY,
                          double X, double Y) {
   double scale_real = X / WIDTH;
@@ -55,16 +53,12 @@ int main() {
   // Initialize pixel array
   sf::Uint8 *pixels = new sf::Uint8[WIDTH * HEIGHT * COLOR_CHANNELS];
 
-  // Example CENTER and size for the viewport
   double centerX = -0.0;
   double centerY = -0.0;
   double X = 3.0; // Width of the viewport in the complex plane
   double Y = 2.0; // Height of the viewport in the complex plane
 
   double currentZoom = 1;
-
-  // Calculate Mandelbrot
-  calculateMandelbrot(pixels, centerX, centerY, X, Y);
 
   // Display using SFML
   sf::Texture texture;
@@ -77,6 +71,15 @@ int main() {
   sf::View view;
   view.reset(sf::FloatRect(0, 0, WIDTH, HEIGHT));
   window.setFramerateLimit(30);
+
+  // Calculate Mandelbrot
+  centerX = (view.getCenter().x - WIDTH / 2.0) * X / WIDTH;
+  centerY = (view.getCenter().y - HEIGHT / 2.0) * Y / HEIGHT;
+  calculateMandelbrot(pixels, centerX, centerY, X * currentZoom,
+                      Y * currentZoom);
+  texture.update(pixels);
+  sprite.setPosition(view.getCenter().x, view.getCenter().y);
+  sprite.setScale(currentZoom, currentZoom);
 
   while (window.isOpen()) {
     sf::Event event;
